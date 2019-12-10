@@ -11,10 +11,13 @@ import android.widget.Button;
 import com.binod.fragments.AreaOfCircle;
 import com.binod.fragments.ArmstrongNumber;
 import com.binod.fragments.AutomorphicNumber;
+import com.binod.fragments.PalindromeNumber;
+import com.binod.fragments.SimpleInterest;
+import com.binod.fragments.SwappingNumber;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btnArea, btnArmstrong, btnAutomorphic;
+    private Button btnArea, btnArmstrong, btnAutomorphic, btnPalindrome, btnSimpleInterest, btnSwapping;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnArea = findViewById(R.id.btnArea);
         btnArmstrong = findViewById(R.id.btnArmstrong);
         btnAutomorphic = findViewById(R.id.btnAutomorphic);
+        btnPalindrome = findViewById(R.id.btnPalindrome);
+        btnSimpleInterest = findViewById(R.id.btnSimpleInterest);
+        btnSwapping = findViewById(R.id.btnSwapping);
+
+        btnArea.setOnClickListener(this);
+        btnArmstrong.setOnClickListener(this);;
+        btnAutomorphic.setOnClickListener(this);
+        btnPalindrome.setOnClickListener(this);
+        btnSimpleInterest.setOnClickListener(this);
+        btnSwapping.setOnClickListener(this);
     }
 
     @Override
@@ -52,9 +65,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 fragmentTransaction.commit();
                 break;
 
+            case R.id.btnPalindrome :
+                PalindromeNumber palindromeNumber = new PalindromeNumber();
+                fragmentTransaction.replace(R.id.FragmentContainer, palindromeNumber);
+                fragmentTransaction.commit();
+                break;
 
+            case R.id.btnSimpleInterest :
+                SimpleInterest simpleInterest = new SimpleInterest();
+                fragmentTransaction.replace(R.id.FragmentContainer, simpleInterest);
+                fragmentTransaction.commit();
+                break;
 
-
+            case  R.id.btnSwapping :
+                SwappingNumber swappingNumber = new SwappingNumber();
+                fragmentTransaction.replace(R.id.FragmentContainer, swappingNumber);
+                fragmentTransaction.commit();
+                break;
         }
     }
 }
